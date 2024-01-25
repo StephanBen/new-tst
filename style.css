@@ -1,0 +1,133 @@
+*,*::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: rgb(2, 2, 12);
+}
+
+.main {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.card {
+    width: 250px;
+    height: 450px;
+    border-radius: 20px;
+    background: rgba(17, 17, 54, 0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    padding: 45px 35px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px #f6f6f624, 0 5px 17px #f5f5f524, 0 10px 15px #cccccc44;
+    animation: animateShadow 5s linear infinite;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 160%;
+    background: linear-gradient(limegreen 20%,cyan 40%,gold 55%,gold 70%,purple 80%);
+    background-size: cover;
+    top: -35%;
+    left: 50%;
+    translate: -50%;
+    animation: animate 5s infinite linear;
+    z-index: -2;
+    
+}
+@keyframes animateShadow {
+  50% {
+        box-shadow: 0 0px 15px #f6f6f600, 0 0px 17px #f5f5f500, 0 0px 15px #cccccc00;
+    }
+    100% {
+        box-shadow: 0 4px 15px #f6f6f624, 0 5px 17px #f5f5f524, 0 10px 15px #cccccc44;
+    }
+}
+.card::after {
+    content: '';
+        position: absolute;
+        background: white;
+        inset: 5px;
+        border-radius: 15px;
+        z-index: -2;
+}
+@keyframes animate {
+    to {
+        rotate: 1turn;
+    }
+}
+
+ul {
+    list-style: none;
+}
+li {
+    position: relative;
+    margin-bottom: 20px;
+    color: darkblue;
+
+}
+li::before {
+    font-family: FontAwesome;
+    content: '\f00c';
+    font-weight: 900;
+    font-size: 16px;
+    color: limegreen;
+    margin-right: 10px;
+}
+.one {
+    & h2 {
+        color: violet;
+        margin-top: -15px;
+    }
+    & p {
+        color: darkgray;
+margin-top: -15px;
+    }
+    & button {
+        border: 1px solid purple;
+        color: purple;
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 8px;
+        ont-weight: bold;
+        margin-top: 25px;
+        cursor: pointer;
+    }
+}
+.two {
+    & h2 {
+            color: coral;
+        }
+    
+        & p {
+            margin-top: -15px;
+            color: darkgray;
+        }
+        & span {
+            font-weight: bold;
+        }
+    
+        & button {
+            border: 1px solid coral;
+            background: coral;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+}
